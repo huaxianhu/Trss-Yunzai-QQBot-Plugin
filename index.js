@@ -690,6 +690,8 @@ const adapter = new (class QQBotAdapter {
         case "embed":
           break
         case "image":
+          if (sharp && i.file) i.file = await this.compressImage(data, i.file)
+
           message.push(i)
           messages.push(message)
           message = []
